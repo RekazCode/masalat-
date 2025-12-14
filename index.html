@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة مسلة الخير | لاستيراد المواد الغذائية والسلع التموينية</title>
+    
+    <!-- خطوط جوجل (Almarai - خط عصري ومريح للقراءة) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- إعدادات الألوان المستوحاة من الشعار -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mk: { // Masallat Khair
+                            orange: '#E69138', // لون الكيس في الشعار
+                            green: '#0F9D58',  // لون السنبلة
+                            dark: '#2D2D2D',   // لون العربة/النص
+                            light: '#FFFBF5',  // خلفية كريمي فاتحة جداً
+                            gray: '#F3F4F6'
+                        }
+                    },
+                    fontFamily: {
+                        almarai: ['Almarai', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Almarai', sans-serif;
+            background-color: #FAFAFA;
+        }
+        
+        /* تأثير التموج في الهيدر */
+        .wave-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        .wave-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+        .wave-bottom .shape-fill {
+            fill: #FAFAFA;
+        }
+
+        /* تنسيق البطاقات */
+        .product-card {
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #eee;
+        }
+        .product-card:hover {
+            border-color: #E69138;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(230, 145, 56, 0.15);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            right: 0;
+            background-color: #E69138;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="text-gray-700">
+
+    <!-- الشريط العلوي (Top Bar) -->
+    <div class="bg-mk-green text-white py-2 text-sm">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <span><i class="fa-solid fa-phone ml-2"></i> 0925061290</span>
+                <span class="hidden sm:inline">|</span>
+                <span class="hidden sm:inline"><i class="fa-solid fa-location-dot ml-2"></i> طرابلس، شارع الاستقلال</span>
+            </div>
+            <div class="flex gap-3">
+                <a href="#" class="hover:text-mk-orange transition"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="hover:text-mk-orange transition"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- النافبار (Navbar) -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- الشعار -->
+            <a href="#" class="flex items-center gap-3">
+                <img src="logo.png" alt="شركة مسلة الخير" class="h-14 w-auto">
+            </a>
+
+            <!-- القائمة -->
+            <div class="hidden md:flex gap-8 font-semibold text-mk-dark">
+                <a href="#home" class="nav-link hover:text-mk-orange">الرئيسية</a>
+                <a href="#about" class="nav-link hover:text-mk-orange">عن الشركة</a>
+                
+                <a href="#contact" class="nav-link hover:text-mk-orange">تواصل معنا</a>
+            </div>
+
+           
+
+            <!-- زر القائمة للموبايل -->
+            <button class="md:hidden text-mk-dark text-2xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- قائمة الموبايل -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4">
+            <a href="#home" class="block py-2 text-mk-dark font-bold hover:text-mk-orange">الرئيسية</a>
+            <a href="#about" class="block py-2 text-mk-dark font-bold hover:text-mk-orange">عن الشركة</a>
+            <a href="#products" class="block py-2 text-mk-dark font-bold hover:text-mk-orange">منتجاتنا</a>
+            <a href="#contact" class="block py-2 text-mk-dark font-bold hover:text-mk-orange">تواصل معنا</a>
+        </div>
+    </nav>
+
+    <!-- الهيرو سكشن (Hero Section) -->
+    <header id="home" class="relative bg-mk-light pt-20 pb-32 overflow-hidden">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12 relative z-10">
+            <div class="md:w-1/2 text-right">
+                <span class="inline-block py-1 px-3 rounded bg-green-100 text-mk-green text-sm font-bold mb-4">
+                    <i class="fa-solid fa-leaf ml-1"></i> جودة غذائية مضمونة
+                </span>
+                <h1 class="text-4xl md:text-6xl font-black text-mk-dark mb-6 leading-tight">
+                    أفضل <span class="text-mk-orange">السلع التموينية</span> <br>
+                    تصلكم أينما كنتم
+                </h1>
+                <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                    شركة مسلة الخير، وجهتكم الأولى لاستيراد المواد الغذائية الأساسية والسلع التموينية بأعلى معايير الجودة العالمية. نضمن لكم المخزون الوفير والسعر المنافس.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#products" class="bg-mk-green text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition shadow-lg hover:shadow-green-500/30">
+                        تصفح المنتجات
+                    </a>
+                   
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 relative">
+                <!-- دائرة خلفية للزينة -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-mk-orange/10 rounded-full z-0"></div>
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Supermarket groceries" class="relative z-10 rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition duration-500">
+                <!-- بطاقة عائمة -->
+                <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl z-20 flex items-center gap-3 animate-bounce">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-mk-green">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500">مخزون متجدد</p>
+                        <p class="font-bold text-mk-dark">توفير دائم</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شكل مموج في الأسفل -->
+        <div class="wave-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- قسم الخدمات والمميزات -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 rounded-2xl hover:bg-orange-50 transition duration-300">
+                    <div class="w-16 h-16 bg-orange-100 text-mk-orange rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">استيراد عالمي</h3>
+                    <p class="text-gray-500">نستورد أفضل السلع الغذائية من كبرى المصانع والمزارع حول العالم لضمان الجودة.</p>
+                </div>
+                <div class="p-6 rounded-2xl hover:bg-green-50 transition duration-300">
+                    <div class="w-16 h-16 bg-green-100 text-mk-green rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">أسعار تنافسية</h3>
+                    <p class="text-gray-500">نقدم للتجار والموزعين أسعار جملة مدروسة تساعدهم على المنافسة في السوق.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- قسم من نحن (مختصر) -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <div class="border-l-8 border-mk-orange pl-6">
+                    <h2 class="text-3xl font-bold text-mk-dark mb-4">عن مسلة الخير</h2>
+                    <p class="text-gray-600 mb-4 leading-loose">
+                        نحن شركة رائدة في العاصمة طرابلس، نعمل بكل فخر لتأمين الاحتياجات الغذائية للسوق الليبي. اسمنا "مسلة" مستوحى من الثبات والأصالة، و"الخير" هو ما نعد بتقديمه في كل كيس وصندوق.
+                    </p>
+                    <p class="text-gray-600 leading-loose">
+                        نلتزم بتوفير المنتجات الغذائية الأساسية بأسعار في متناول الجميع، مع الحفاظ على الجودة التي تليق بالمائدة الليبية.
+                    </p>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <div class="bg-mk-green rounded-2xl p-8 text-white text-center shadow-2xl relative overflow-hidden">
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-white opacity-10 rounded-full"></div>
+                    <i class="fa-solid fa-quote-right text-4xl mb-4 opacity-50"></i>
+                    <h3 class="text-2xl font-bold mb-4">رؤيتنا</h3>
+                    <p class="text-lg">أن نكون المورد الأول والأكثر ثقة للعائلة الليبية، ونساهم في تحقيق الأمن الغذائي بأعلى مستويات الاحترافية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="py-20 bg-mk-light relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-mk-green opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-mk-orange opacity-5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-mk-green font-bold tracking-wider uppercase text-sm">قيمنا الجوهرية</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-mk-dark mt-2">رسالتنا وفلسفتنا</h2>
+                <div class="w-20 h-1.5 bg-mk-orange mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- رسالتنا -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-mk-orange hover:shadow-xl transition duration-300">
+                    <div class="w-16 h-16 bg-orange-100 text-mk-orange rounded-full flex items-center justify-center text-3xl mb-6">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-mk-dark mb-4">رسالتنا</h3>
+                    <p class="text-gray-600 leading-loose text-lg">
+                        نسعى في مسلة الخير إلى أن نكون الركيزة الأساسية في منظومة الأمن الغذائي المحلي، عبر سد الفجوة بين الإنتاج العالمي واحتياجات السوق الليبي، وضمان وصول السلع التموينية لكل بيت بأعلى معايير السلامة والجودة.
+                    </p>
+                </div>
+
+                <!-- فلسفتنا -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-mk-green hover:shadow-xl transition duration-300">
+                    <div class="w-16 h-16 bg-green-100 text-mk-green rounded-full flex items-center justify-center text-3xl mb-6">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-mk-dark mb-4">فلسفتنا</h3>
+                    <p class="text-gray-600 leading-loose text-lg">
+                        نؤمن بأن "الغذاء الجيد حق للجميع"، ولذلك تقوم فلسفتنا على المعادلة الصعبة: جودة ممتازة وسعر عادل. نحن لا نبيع منتجات فقط، بل نبني جسور ثقة مع عملائنا من خلال الشفافية المطلقة والالتزام الأخلاقي في التجارة.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المنتجات -->
+    <section id="products" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-mk-green font-bold tracking-wider uppercase text-sm">تشكيلتنا المميزة</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-mk-dark mt-2">منتجاتنا</h2>
+                <div class="w-20 h-1.5 bg-mk-orange mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">نوفر لكم أفضل المنتجات الغذائية والسلع التموينية بجودة عالية وأسعار منافسة</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- المنتج 1 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="image (1).jpeg" alt="منتج 1" class="w-full h-full object-contain hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-mk-dark text-lg">منتج مميز</h3>
+                        <p class="text-gray-500 text-sm mt-1">جودة عالية</p>
+                    </div>
+                </div>
+
+                <!-- المنتج 2 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="image (2).jpeg" alt="منتج 2" class="w-full h-full object-contain hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-mk-dark text-lg">منتج مميز</h3>
+                        <p class="text-gray-500 text-sm mt-1">جودة عالية</p>
+                    </div>
+                </div>
+
+                <!-- المنتج 3 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="image (3).jpeg" alt="منتج 3" class="w-full h-full object-contain hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-mk-dark text-lg">منتج مميز</h3>
+                        <p class="text-gray-500 text-sm mt-1">جودة عالية</p>
+                    </div>
+                </div>
+
+                <!-- المنتج 4 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="image (1).jpeg" alt="منتج 4" class="w-full h-full object-contain hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-mk-dark text-lg">منتج مميز</h3>
+                        <p class="text-gray-500 text-sm mt-1">جودة عالية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل -->
+    <section id="contact" class="bg-mk-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <h2 class="text-3xl font-bold mb-2">تواصل معنا الآن</h2>
+                    <p class="text-gray-400">فريق المبيعات جاهز لاستقبال طلباتكم واستفساراتكم</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                   
+                    
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-12 pt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-right">
+                <div>
+                    <h4 class="text-mk-orange font-bold mb-4">العنوان</h4>
+                    <p class="flex items-start justify-center md:justify-start gap-2 text-gray-300">
+                        <i class="fa-solid fa-map-location-dot mt-1"></i>
+                        <span>طرابلس، شارع الاستقلال<br>ليبيا</span>
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-mk-orange font-bold mb-4">ساعات العمل</h4>
+                    <p class="text-gray-300">السبت - الخميس: 9:00 ص - 8:00 م</p>
+                    <p class="text-gray-500 text-sm">الجمعة: عطلة</p>
+                </div>
+                <div>
+                    <h4 class="text-mk-orange font-bold mb-4">روابط سريعة</h4>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <a href="#" class="w-10 h-10 rounded bg-gray-700 flex items-center justify-center hover:bg-mk-orange transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded bg-gray-700 flex items-center justify-center hover:bg-mk-orange transition"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 text-gray-600 text-sm">
+                &copy; 2024 شركة مسلة الخير لاستيراد المواد الغذائية. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
